@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip to NewYork</title>
+
+    <style>
+        header 
+  {
+     width: 100%;
+     font-family: sans-serif;
+  }
+body 
+  {
+      background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.2)),url('../img/Manhattan.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      padding: 3px;
+  }
+nav 
+  {
+    width: 100%;
+    height: 100px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+.logo
+  {
+    font-size: 1.5em;
+    letter-spacing: 2px;
+  }
+.menu a
+  {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 20px;
+    position: relative;
+  }
+.menu a:before
+  {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    border-bottom: 2px solid #CD5909;
+    transition: width 0.4s linear; 
+  }
+.menu a:hover:before
+  {
+    width: 90%;
+  }
+.signup a
+  {
+     text-decoration: none;
+     color: white;
+     padding: 10px 20px;
+     font-size: 20px;
+     background: #CD5909;
+     border-radius: 3px;
+     transition: width 0.4s;
+  }
+.signup a:hover
+  {
+    background: transparent;
+    border: 1px solid #CD5909;
+  }
+  .heading{
+    color: white;
+    text-align: center;
+    font-size: 28px;
+  }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+          <div class="logo"> 
+            Explore-Logo
+          </div>
+          <div class="menu">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a> 
+            <a href="tripplan.html">Trip Plan</a>
+            <a href="#">Journal</a>
+            <a href="contactus.html">Contact</a>
+            <a href="#">Guides</a>
+          </div>
+          <div class="signup">
+            <a href="signupform.html">Signup</a>
+          </div>
+        </nav>
+
+        <div class="heading">
+            <h1>NEW YORK CITY</h1>
+        </div>
+      </header>
+  </body>
+
+</html>
