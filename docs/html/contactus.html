@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Travel Website</title>
+    <link href="../css/stylec.css" rel="stylesheet"/>
+    
+</head>
+<body>
+    <header>
+        <nav>
+          <div class="logo"> 
+            Explore-Logo
+          </div>
+          <div class="menu">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a> 
+            <a href="tripplan.html">Trip Plan</a>
+            <a href="#">Journal</a>
+            <a href="contactus.html">Contact</a>
+            <a href="#">Guides</a>
+          </div>
+          <div class="signup">
+            <a href="signupform.html">Signup</a>
+          </div>
+        </nav>
+      </header>
+
+      <div class="contact-container">
+        <h2>Contact Us</h2>
+
+        <label for="officeSelect">Select an Office Location:</label>
+        <select id="officeSelect" onchange="showOfficeInfo()">
+            <option value="">-- Select Office --</option>
+            <option value="ny">New York</option>
+            <option value="paris">Paris</option>
+            <option value="tokyo">Tokyo</option>
+        </select>
+
+        <div class="office-info" id="officeInfo">
+
+        </div>
+
+        <div class="contact-form">
+            <h3>Contact Form</h3>
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" placeholder="Enter your name">
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" placeholder="Enter your email">
+
+            <label for="message">Message:</label>
+            <textarea id="message" rows="5" placeholder="Enter your message"></textarea>
+
+            <button type="button" onclick="submitForm()">Submit</button>
+        </div>
+
+        <div class="summary" id="summarySection" style="display:none;">
+            <h3>Submission Summary</h3>
+            <p id="summaryText"></p>
+            <button type="button" onclick="resetForm()">Reset Form</button>
+        </div>
+    </div>
+
+    <script>
+        
+        function showOfficeInfo() {
+            let officeSelect = document.getElementById('officeSelect').value;
+            let officeInfo = document.getElementById('officeInfo');
+            let officeDetails = "";
+
+            if (officeSelect === "ny") {
+                officeDetails = "<h3>New York Office</h3><p>Address: 123 Main Street, NY 10001, USA</p><p>Phone: +1 212-555-1234</p>";
+            } else if (officeSelect === "paris") {
+                officeDetails = "<h3>Paris Office</h3><p>Address: 10 Rue de Rivoli, 75001 Paris, France</p><p>Phone: +33 1 42 72 12 34</p>";
+            } else if (officeSelect === "tokyo") {
+                officeDetails = "<h3>Tokyo Office</h3><p>Address: 1-1 Chiyoda, Tokyo 100-8111, Japan</p><p>Phone: +81 3-3211-1234</p>";
+            } else {
+                officeDetails = "";
+            }
+
+            officeInfo.innerHTML = officeDetails;
+        }
+
+        function submitForm() {
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let message = document.getElementById('message').value;
+            let office = document.getElementById('officeSelect').value;
+            let officeName = "";
+
+            if (office === "ny") {
+                officeName = "New York";
+            } else if (office === "paris") {
+                officeName = "Paris";
+            } else if (office === "tokyo") {
+                officeName = "Tokyo";
+            } else {
+                officeName = "No office selected";
+            }
+
+            if (name === "" || email === "" || message === "") {
+                alert("Please fill out all fields before submitting.");
+            } else {
+                let summaryText = `Name: ${name}<br>Email: ${email}<br>Message: ${message}<br>Selected Office: ${officeName}`;
+                document.getElementById('summaryText').innerHTML = summaryText;
+                document.getElementById('summarySection').style.display = 'block';
+                
+                document.querySelector('.contact-form').style.display = 'none';
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('name').value = "";
+            document.getElementById('email').value = "";
+            document.getElementById('message').value = "";
+            document.getElementById('officeSelect').value = "";
+
+            document.getElementById('summarySection').style.display = 'none';
+            document.querySelector('.contact-form').style.display = 'block';
+
+            document.getElementById('officeInfo').innerHTML = "";
+        }
+    </script>
+
+</body>
+</html>
