@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up - GoExplore</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('../cottage.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .signup-container {
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.9);
+      width: 350px;
+      height: 400px;
+      text-align: center;
+    }
+
+    .signup-container h2 {
+      margin-bottom: 20px;
+      font-size: 2em;
+      color: #CD5909;
+    }
+
+    .signup-container input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    .signup-container input[type="submit"] {
+        width: 50%;
+      background-color: #CD5909;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .signup-container input[type="submit"]:hover {
+      background-color: #ff6600;
+    }
+
+    .signup-container p {
+      margin-top: 20px;
+      color: #555;
+    }
+
+    .signup-container a {
+      color: #CD5909;
+      text-decoration: none;
+    }
+
+    .signup-container a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h2>Sign Up</h2>
+    <form onsubmit="return f1()">
+      <input type="text" name="name" id="name" placeholder="Full Name" required>
+      <input type="email" name="email" id="email" placeholder="Email Address" required>
+      <input type="password" name="password" id="password" placeholder="Password" required>
+      <input type="submit" value="Sign Up">
+    </form>
+    <p>Already have an account? <a href="login.html">Log in</a></p>
+  </div>
+
+  <script>
+    function f1() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+
+      // Alert box
+      alert("You entered:\nName: " + name + "\nEmail: " + email);
+
+      document.write(`
+        <h2>Welcome, ${name}!</h2>
+        <p>Your email: ${email}</p>
+        <button onclick="saveChanges()">Want to Save Changes?</button>
+      `);
+    }
+
+    function saveChanges() {
+      // Confirm box 
+      const save = confirm("Do you want to save changes?");
+      if (save) {
+        document.write(`
+          <h2>Changes Saved Successfully!</h2>
+          <button onclick="giveFeedback()">Give Feedback</button>
+        `);
+      } else {
+        document.write(`<h2>No changes were saved.</h2>
+        <button onclick="giveFeedback()">Give Feedback</button>`);
+        
+      }
+    }
+
+    function giveFeedback() {
+      // Prompt box to get user feedback
+      const feedback = prompt("Please provide your feedback:");
+      if (feedback) {
+        document.write(`
+          <h2>Thank you for your feedback!</h2>
+          <p>Your feedback: "${feedback}"</p>
+        `);
+      } else {
+        document.write("<h2>No feedback provided.</h2>");
+      }
+    }
+  </script>
+</body>
+</html>
